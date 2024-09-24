@@ -58,6 +58,22 @@
 		]
 	</expression>
 
+	<expression name="IsHDR10Plus">[[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,video)] + [String.Contains(ListItem.Label,(HDR10+)) | String.Contains(ListItem.Filename,.HDR10+.) | String.Contains(ListItem.Filename,-HDR10+-) | String.Contains(ListItem.Filename,- HDR10+ -) | String.Contains(ListItem.Filename,(HDR10+)) | String.Contains(ListItem.Filename,(HDR10plus))]]</expression>
+
+	<expression name="HasHDR10PlusTag">[
+		[[String.Contains(ListItem.Tag, / ) | String.Contains(Container(2000).ListItem.Tag, / )] + [String.Contains(ListItem.Tag,HDR10+) | String.Contains(Container(2000).ListItem.Tag,HDR10+) | String.Contains(ListItem.Tag, HDR10+) | String.Contains(Container(2000).ListItem.Tag, HDR10+)]]
+		| [!String.Contains(ListItem.Tag, / ) + !String.Contains(Container(2000).ListItem.Tag, / ) + [String.IsEqual(ListItem.Tag,HDR10+) | String.IsEqual(Container(2000).ListItem.Tag,HDR10+)]]
+		]
+	</expression>
+
+	<expression name="IsDolbyVision">[[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,video)] + [String.Contains(ListItem.Label,(DoVi)) | String.Contains(ListItem.Filename,.DoVi.) | String.Contains(ListItem.Filename,-DoVi-) | String.Contains(ListItem.Filename,- DoVi -) | String.Contains(ListItem.Filename,(DoVi)) | String.Contains(ListItem.Label,(DV)) | String.Contains(ListItem.Filename,.DV.) | String.Contains(ListItem.Filename,-DV-) | String.Contains(ListItem.Filename,- DV -) | String.Contains(ListItem.Filename,(DV))]]</expression>
+
+	<expression name="HasDolbyVisionTag">[
+		[[String.Contains(ListItem.Tag, / ) | String.Contains(Container(2000).ListItem.Tag, / )] + [String.Contains(ListItem.Tag,DoVi) | String.Contains(Container(2000).ListItem.Tag,DoVi) | String.Contains(ListItem.Tag, DoVi) | String.Contains(Container(2000).ListItem.Tag, DoVi)]]
+		| [!String.Contains(ListItem.Tag, / ) + !String.Contains(Container(2000).ListItem.Tag, / ) + [String.IsEqual(ListItem.Tag,DoVi) | String.IsEqual(Container(2000).ListItem.Tag,DoVi)]]
+		]
+	</expression>
+
 	<expression name="HasPoster">[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))]</expression>
 	<expression name="HasLandscape">[!String.IsEmpty(ListItem.Art(landscape))]</expression>
 	<expression name="HasFanart">[!String.IsEmpty(ListItem.Art(fanart))]</expression>
@@ -255,5 +271,3 @@
 	</expression>
 
 </includes>
-
-

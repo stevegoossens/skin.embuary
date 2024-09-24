@@ -41,6 +41,20 @@
 					<font>Light22</font>
 					<textcolor>text_sublabel</textcolor>
 					<include>MetaLabel</include>
+					<label>[UPPERCASE]HDR10+[/UPPERCASE]   </label>
+					<visible>$EXP[IsHDR10Plus]</visible>
+				</control>
+				<control type="label">
+					<font>Light22</font>
+					<textcolor>text_sublabel</textcolor>
+					<include>MetaLabel</include>
+					<label>Dolby Vision   </label>
+					<visible>$EXP[IsDolbyVision]</visible>
+				</control>
+				<control type="label">
+					<font>Light22</font>
+					<textcolor>text_sublabel</textcolor>
+					<include>MetaLabel</include>
 					<label>$VAR[ListItemAudioChannels]   </label>
 					<visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
 				</control>
@@ -145,6 +159,20 @@
 					<include>MetaLabel</include>
 					<label>[UPPERCASE]HDR[/UPPERCASE]   </label>
 					<visible>String.Contains(Player.Filename,.HDR.) | String.Contains(Player.Filename,-HDR-) | String.Contains(Player.Filename,- HDR -) | String.Contains(Player.Filename,(HDR))</visible>
+				</control>
+				<control type="label">
+					<font>Light22</font>
+					<textcolor>text_sublabel</textcolor>
+					<include>MetaLabel</include>
+					<label>[UPPERCASE]HDR10+[/UPPERCASE]   </label>
+					<visible>String.Contains(Player.Filename,.HDR10+.) | String.Contains(Player.Filename,-HDR10+-) | String.Contains(Player.Filename,- HDR10+ -) | String.Contains(Player.Filename,(HDR10+)) | String.Contains(Player.Filename,.HDR10Plus.) | String.Contains(Player.Filename,-HDR10Plus-) | String.Contains(Player.Filename,- HDR10Plus -) | String.Contains(Player.Filename,(HDR10Plus))</visible>
+				</control>
+				<control type="label">
+					<font>Light22</font>
+					<textcolor>text_sublabel</textcolor>
+					<include>MetaLabel</include>
+					<label>Dolby Vision   </label>
+					<visible>String.Contains(Player.Filename,.DoVi.) | String.Contains(Player.Filename,-DoVi-) | String.Contains(Player.Filename,- DoVi -) | String.Contains(Player.Filename,(DoVi)) | String.Contains(Player.Filename,.DV.) | String.Contains(Player.Filename,-DV-) | String.Contains(Player.Filename,- DV -) | String.Contains(Player.Filename,(DV))</visible>
 				</control>
 				<control type="label">
 					<font>Light22</font>
@@ -1366,6 +1394,16 @@
 			<include>MetaFlagsButton</include>
 			<label>[UPPERCASE]HDR[/UPPERCASE]</label>
 			<visible>$EXP[IsHDR] | $EXP[HasHDRTag]</visible>
+		</control>
+		<control type="button">
+			<include>MetaFlagsButton</include>
+			<label>[UPPERCASE]HDR+[/UPPERCASE]</label>
+			<visible>$EXP[IsHDR10Plus] | $EXP[HasHDR10PlusTag]</visible>
+		</control>
+		<control type="button">
+			<include>MetaFlagsButton</include>
+			<label>Dolby Vision</label>
+			<visible>$EXP[IsDolbyVision] | $EXP[HasDolbyVisionTag]</visible>
 		</control>
 		<control type="button">
 			<include>MetaFlagsButton</include>

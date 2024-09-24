@@ -13,6 +13,8 @@
 					<param name="pvr_overlay" value="$PARAM[pvr_overlay]"/>
 				</include>
 				<include>ListItemOverlayHDR</include>
+				<include>ListItemOverlayHDR10Plus</include>
+				<include>ListItemOverlayDolbyVision</include>
 				<include>ListItemOverlayTmbdbIsLocal</include>
 				<include>ListItemOverlayAddonStatus</include>
 			</control>
@@ -151,8 +153,32 @@
 			<left>8</left>
 			<top>9</top>
 			<height>30</height>
-			<control type="image">>
+			<control type="image">
 				<texture>items/hdr_overlay.png</texture>
+				<aspectratio align="left" aligny="top">keep</aspectratio>
+			</control>
+		</control>
+	</include>
+	<include name="ListItemOverlayHDR10Plus">
+		<control type="group">
+			<visible>$EXP[IsHDR10Plus] | $EXP[HasHDR10PlusTag]</visible>
+			<left>8</left>
+			<top>9</top>
+			<height>30</height>
+			<control type="image">
+				<texture>items/hdr10plus_overlay.png</texture>
+				<aspectratio align="left" aligny="top">keep</aspectratio>
+			</control>
+		</control>
+	</include>
+	<include name="ListItemOverlayDolbyVision">
+		<control type="group">
+			<visible>$EXP[IsDolbyVision] | $EXP[HasDolbyVisionTag]</visible>
+			<left>8</left>
+			<top>9</top>
+			<height>30</height>
+			<control type="image">
+				<texture>items/dolbyvision_overlay.png</texture>
 				<aspectratio align="left" aligny="top">keep</aspectratio>
 			</control>
 		</control>
